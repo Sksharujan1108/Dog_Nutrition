@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Dog-Nutrition",
+    "slug": "dognutrition",
+    "version": "1.1",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/image/splash/Splash_Screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ios"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dba113e9-3f92-4554-99ce-00bc73e59389"
+      }
+    },
+    "android": {
+      "package": "com.sksarujan.dognutrition",
+      "versionCode": 2
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    }
+  }
+}
