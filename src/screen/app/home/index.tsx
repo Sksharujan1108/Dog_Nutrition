@@ -8,9 +8,12 @@ import { Constants } from "./constants";
 import HomeOfferCart from "@/component/homeOfferCart";
 import HomeProductList from "@/component/homeProductList";
 import { HomeStackScreenProps } from "@/navigation/navigation_Models/app_Models/home/home_Models";
+import { addToCart } from "@/feature/slices/cartSlices";
+import { useAppDispatch } from "@/feature/stateHook";
 
 const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
   const [search, setSearch] = useState("");
+  const dispatch = useAppDispatch();
 
   // filter Product
   const filteredProduct = productData.filter(product => 
@@ -18,8 +21,15 @@ const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
   )
 
   // Function to handle adding products to the cart
-  const handleAddToCart = (productId: string) => {
-    console.log(`Product with ID: ${productId} added to cart`);
+  const handleAddToCart = (product: any) => {
+    dispatch(addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: 1,  // default quantity if adding first time
+      image: product.image
+  }));
+    console.log(`Product added to cart: ${product.title}`);
     // Implement actual logic here (e.g., updating the cart state)
   };
 
@@ -105,56 +115,56 @@ const productData = [
   {
     id: 1,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
-    price: "Rs.5000",
+    price: 5000,
     ratting: "4.2k",
     title: "Pedigree 3kg - Adult Dog",
   },
   {
     id: 2,
     image: require("@/assets/image/home/productImage/Chappi.png"),
-    price: "Rs.4999",
+    price: 4999,
     ratting: "4.2k",
     title: "Chappi Adult Dog Food ",
   },
   {
     id: 3,
     image: require("@/assets/image/home/productImage/DroolsDog.png"),
-    price: "Rs.5999",
+    price: 5999,
     ratting: "4.2k",
     title: "Drools Dog Food ",
   },
   {
     id: 4,
     image: require("@/assets/image/home/productImage/ClassicPet.png"),
-    price: "Rs.5550",
+    price: 5550,
     ratting: "4.2k",
     title: "Classic Pet - Adult 15KG",
   },
   {
     id: 5,
     image: require("@/assets/image/home/productImage/Royal.png"),
-    price: "Rs.5000",
+    price: 5000,
     ratting: "4.2k",
     title: "Royal Cain Dry Food",
   },
   {
     id: 6,
     image: require("@/assets/image/home/productImage/drools.png"),
-    price: "Rs.3000",
+    price: 3000,
     ratting: "4.2k",
     title: "Drools Dog Food",
   },
   {
     id: 7,
     image: require("@/assets/image/home/productImage/BlackHawk.png"),
-    price: "Rs.6000",
+    price: 6000,
     ratting: "4.2k",
     title: "BlackHawk Puppy",
   },
   {
     id: 8,
     image: require("@/assets/image/home/productImage/HappyDog.png"),
-    price: "Rs.2500",
+    price: 2500,
     ratting: "4.2k",
     title: "Happy Dog Supreme Young",
   }

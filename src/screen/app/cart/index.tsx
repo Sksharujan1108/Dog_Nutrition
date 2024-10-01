@@ -9,9 +9,14 @@ import TotalListCard from "@/component/TotalListCard";
 import Card from '@/assets/svg/cart/credit-card.svg';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { ErrorFlash } from "@/utlis/flashMessage";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
   const [isChecked, setIsChecked] = useState(false); // Checkbox state
+
+  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  const total = useSelector((state: any) => state.cart.total);
+  const dispatch = useDispatch();
 
   const handleOrderPlace = () => {
     if (!isChecked) {
@@ -37,13 +42,20 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
           showsVerticalScrollIndicator={false}
         >
           {/* Product Card */}
-          <ProductShowCard data={data} />
+          {cartItems?.map((item: any) => (
+            <ProductShowCard 
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
 
           {/* Total Card */}
           <TotalListCard
-            subTotal={"6,027.00"}
+            subTotal={total}
             shipping={"100.00"}
-            total={"6,127.00"}
+            total={(total + 100).toLocaleString()} // Calculating the total dynamically
           />
 
           {/* Payment Method */}

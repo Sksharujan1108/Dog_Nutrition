@@ -14,7 +14,7 @@ interface HomeProductListProps {
   data: {
     id: number;
     image: any;
-    price: string;
+    price: number;
     ratting: string;
     title: string;
   }[];
@@ -56,7 +56,7 @@ const HomeProductList = (props: HomeProductListProps) => {
 
               {/* text */}
               <View style={styles.text_container}>
-                <Text style={styles.price_text}>{item?.price}</Text>
+                <Text style={styles.price_text}>Rs.{Number(item?.price).toFixed(2)}</Text>
                 <Text style={styles.ratting_text}>{item?.ratting}</Text>
               </View>
               <Text style={styles.description_text}>

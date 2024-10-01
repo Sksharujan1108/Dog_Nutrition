@@ -7,10 +7,14 @@ import {
 } from '@gorhom/bottom-sheet';
 import Routes from './src/navigation/routes';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { Provider } from 'react-redux';
+import store from './src/feature/store';
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
+      <Provider store = {store}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
       <BottomSheetModalProvider>
         <Routes/>
         <FlashMessage
@@ -20,6 +24,8 @@ export default function App() {
         />
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
+      </Provider>
+    </View>
   );
 }
 
