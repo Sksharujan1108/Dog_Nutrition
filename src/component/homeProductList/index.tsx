@@ -14,11 +14,11 @@ interface HomeProductListProps {
   data: {
     id: number;
     image: any;
-    price: string;
+    price: number;
     ratting: string;
     title: string;
   }[];
-  onPressAddToCart: (productId: string) => void; // Function to handle add to cart
+  onPressAddToCart: (responseItem: {id: number, image: any, price: number}, ratting: string, title: string) => void; // Function to handle add to cart
   onPressDetails: () => void;
 }
 
@@ -56,7 +56,7 @@ const HomeProductList = (props: HomeProductListProps) => {
 
               {/* text */}
               <View style={styles.text_container}>
-                <Text style={styles.price_text}>{item?.price}</Text>
+                <Text style={styles.price_text}>Rs.{Number(item?.price).toFixed(2)}</Text>
                 <Text style={styles.ratting_text}>{item?.ratting}</Text>
               </View>
               <Text style={styles.description_text}>
@@ -67,7 +67,7 @@ const HomeProductList = (props: HomeProductListProps) => {
             {/* Add To cart */}
             <AddToCart
               title={"Add to cart"}
-              onPress={() => onPressAddToCart(item.id)} // Call the prop function
+              onPress={() => onPressAddToCart(item)} // Call the prop function
             />
           </View>
         )}
