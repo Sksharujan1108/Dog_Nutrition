@@ -13,11 +13,13 @@ interface CartItem {
 interface CartState {
   cart: CartItem[];
   total: number;
+  itemCount: number; // Add a new property to track total items count
 }
 
 const INITIAL_STATE: CartState = {
   cart: [],
   total: 0,
+  itemCount: 0,
 };
 
 const CartSlice = createSlice({
@@ -41,29 +43,28 @@ const CartSlice = createSlice({
       }
       // Update the total price
       state.total += action.payload.price;
+      state.itemCount += 1; // Increment item count
     },
 
     // Remove item from cart and recalculate the total
     deleteFromCart: (state: CartState, action: PayloadAction<number>) => {
-      const updatedCart = state.cart.filter(
-        (item) => item.id !== action.payload
-      );
-
-      // Recalculate total by reducing over the filtered cart
-      state.total = updatedCart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
-
-      // Set the updated cart
-      state.cart = updatedCart;
+      const itemToRemove = state.cart.find((item) => item.id === action.payload);
+      if (itemToRemove) {
+        // Update total price and item count based on the quantity being removed
+        state.total -= itemToRemove.price * itemToRemove.quantity;
+        state.itemCount -= itemToRemove.quantity; // Decrease item count
+      }
+      // Filter out the removed item
+      state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
+    
     // Increment the quantity of an item in the cart
     incrementQuantity: (state: CartState, action: PayloadAction<number>) => {
       const item = state.cart.find((item) => item.id == action.payload);
       if (item) {
         item.quantity += 1;
         state.total += item.price;
+        state.itemCount += 1; // Increment item count
       }
     },
 
@@ -73,6 +74,7 @@ const CartSlice = createSlice({
       if (item && item.quantity > 1) {
         item.quantity -= 1;
         state.total -= item.price;
+        state.itemCount -= 1; // Increment item count
       }
     },
   },
@@ -88,5 +90,6 @@ export const {
 
 export const SelectItems = (state: RootState) => state.cart.cart;
 export const selectTotal = (state: RootState) => state.cart.total;
+export const selectCartItemsCount = (state: RootState) => state.cart.cart.length;
 
 export default CartSlice;

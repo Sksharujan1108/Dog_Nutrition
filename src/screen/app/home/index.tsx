@@ -10,48 +10,48 @@ import HomeProductList from "@/component/homeProductList";
 import { HomeStackScreenProps } from "@/navigation/navigation_Models/app_Models/home/home_Models";
 import { addToCart } from "@/feature/slices/cartSlices";
 import { useAppDispatch, useAppSelector } from "@/feature/stateHook";
+import { SuccessFlash } from "@/utlis/flashMessage";
 
 const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
   const [search, setSearch] = useState("");
-
-  const cart = useAppSelector((state) => state.cart.cart);
-  console.log('cart New', cart);
-  
   const dispatch = useAppDispatch();
 
+  // const cart = useAppSelector((state) => state.cart.cart);
+  // console.log('cart New', cart);
+
   // filter Product
-  const filteredProduct = productData.filter(product => 
+  const filteredProduct = productData.filter((product) =>
     product.title.toLowerCase().includes(search.toLocaleLowerCase())
-  )
+  );
 
   // Function to handle adding products to the cart
   const handleAddToCart = (item: any) => {
     dispatch(addToCart(item));
-    console.log(`Product added to cart: ${item.title}`);
-    // Implement actual logic here (e.g., updating the cart state)
+    SuccessFlash(`Product added to cart: ${item.title}`);
+    // console.log(`Product added to cart: ${item.title}`);
   };
 
   return (
     <View style={styles.root}>
+      <HomeHeader
+        name={profileData?.name}
+        location={profileData?.location}
+        onPress={() => {
+          navigation.navigate("CartScreenStack", {
+            name: "CartScreen",
+          });
+        }}
+      />
       <View style={styles.main_Container}>
         <ScrollView
           contentContainerStyle={styles.scroll_view_container}
           showsVerticalScrollIndicator={false}
         >
-          <HomeHeader
-            name={profileData?.name}
-            location={profileData?.location}
-            onPress={() => {
-              navigation.navigate("CartScreenStack", {
-                name: "CartScreen",
-              });
-            }}
-          />
           {/* Search Filter */}
           <View style={styles.search_filter_container}>
             {/* Search */}
             <SearchInput
-              style = {styles.search_container}
+              style={styles.search_container}
               placeholder={Constants.SEARCH}
               value={search}
               onChangeText={(text: any) => {
@@ -165,5 +165,5 @@ const productData = [
     price: 2500,
     ratting: "4.2k",
     title: "Happy Dog Supreme Young",
-  }
+  },
 ];

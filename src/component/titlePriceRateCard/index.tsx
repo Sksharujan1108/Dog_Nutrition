@@ -6,6 +6,7 @@ import Minus from "@/assets/svg/home/minus.svg";
 import Plus from "@/assets/svg/home/Plus.svg";
 
 interface TitlePriceRateCardProps {
+  id?: number;
   title?: string;
   price?: string;
   rate?: string;
@@ -13,7 +14,7 @@ interface TitlePriceRateCardProps {
 }
 
 const TitlePriceRateCard = (props: TitlePriceRateCardProps) => {
-  const { title, price, rate, description } = props;
+  const { id, title, price, rate, description } = props;
   const [count, setCount] = React.useState(1);
   return (
     <View style={styles.container}>
@@ -24,7 +25,7 @@ const TitlePriceRateCard = (props: TitlePriceRateCardProps) => {
           {title}{" "}
         </Text>
         <View style={styles.price_container}>
-          <Text style={styles.price_text}> {price} </Text>
+          <Text style={styles.price_text}>Rs.{Number(price).toLocaleString()} </Text>
         </View>
       </View>
       {/* Rate */}

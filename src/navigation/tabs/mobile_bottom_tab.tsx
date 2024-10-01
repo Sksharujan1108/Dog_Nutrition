@@ -24,10 +24,15 @@ import GreenSearch from '@/assets/svg/bottomTab/GreenSearch.svg'
 import GreenGuide from '@/assets/svg/bottomTab/GreenGuide.svg'
 import GreenCart from '@/assets/svg/bottomTab/GreenCart.svg'
 import GreenProfile from '@/assets/svg/bottomTab/GreenProfile.svg'
+import { useSelector } from "react-redux";
+import { selectCartItemsCount } from "@/feature/slices/cartSlices";
 
 const Tab = createBottomTabNavigator();
 
 const AppBottomTop = () => {
+  const cartItemCount = useSelector(selectCartItemsCount); // Get the item count from Redux
+  // console.log('cartItemCount', cartItemCount);
+  
   return (
     <View style = {{
       flex: 1,
@@ -130,19 +135,22 @@ const AppBottomTop = () => {
           component={CartStack} 
           options={() => ({
             tabBarIcon: ({ color }) => (
-              <View style={styles.iconView}>
+              <View style={[
+                styles.iconView,
+                // {backgroundColor: 'pink'}
+              ]}>
                 {color == ColorSheet.Secondary
                   ?
                     <GreenCart
                       fill={color}
-                      width={28}
-                      height={28}
+                      width={31}
+                      height={29}
                     />
                   :
                     <Cart
                       fill={color}
-                      width={28}
-                      height={28}
+                      width={31}
+                      height={29}
                     />
                 }
                 <Text
@@ -155,6 +163,11 @@ const AppBottomTop = () => {
                 >
                   Cart
                 </Text>
+                {cartItemCount > 0 &&(
+                  <View style={styles.cartCountContainer}>
+                    <Text style={styles.cartCountText}>{cartItemCount}</Text>
+                  </View>
+                )}
               </View>
             ),
           })}
@@ -247,6 +260,23 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS == 'ios' ? hp(0.5) : 0,
     fontSize: Platform.OS == 'ios' ? RFValue(11) : RFValue(14),
     fontWeight: '500',
+  },
+
+  cartCountContainer: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: hp(1.8),
+    height: hp(1.8),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: ColorSheet.Error,
+    borderRadius: hp(1.8)/2,
+  },
+  cartCountText: {
+    fontSize: RFValue(8),
+    fontWeight: '500',
+    color: ColorSheet.Primary,
   },
 });
 

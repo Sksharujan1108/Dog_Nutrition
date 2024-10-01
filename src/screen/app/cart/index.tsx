@@ -6,28 +6,34 @@ import { CartStackScreenProps } from "@/navigation/navigation_Models/app_Models/
 import MainButton from "@/component/button/mainButton";
 import ProductShowCard from "@/component/productShowCard";
 import TotalListCard from "@/component/TotalListCard";
-import Card from '@/assets/svg/cart/credit-card.svg';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import Card from "@/assets/svg/cart/credit-card.svg";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { ErrorFlash } from "@/utlis/flashMessage";
 import { useAppDispatch, useAppSelector } from "@/feature/stateHook";
-import { decrementQuantity, deleteFromCart, incrementQuantity, SelectItems, selectTotal } from "@/feature/slices/cartSlices";
+import {
+  decrementQuantity,
+  deleteFromCart,
+  incrementQuantity,
+  SelectItems,
+  selectTotal,
+} from "@/feature/slices/cartSlices";
 
 const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
   const [isChecked, setIsChecked] = useState(false); // Checkbox state
 
-  const selectedTotal = useAppSelector(selectTotal)
-  console.log('selectedTotal', selectedTotal);
+  const selectedTotal = useAppSelector(selectTotal);
+  console.log("selectedTotal", selectedTotal);
 
   const selectedItem = useAppSelector(SelectItems);
-  console.log('selectedItem', selectedItem);
-  
+  console.log("selectedItem", selectedItem);
+
   const dispatch = useAppDispatch();
 
   const handleOrderPlace = () => {
     if (!isChecked) {
       ErrorFlash("Please select a payment method");
     } else {
-      navigation.navigate('OrderSuccessScreen'); // Proceed only if checkbox is checked
+      navigation.navigate("OrderSuccessScreen"); // Proceed only if checkbox is checked
     }
   };
 
@@ -48,7 +54,7 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
         >
           {/* Product Card */}
           {selectedItem?.map((item: any) => (
-            <ProductShowCard 
+            <ProductShowCard
               key={item.id}
               title={item.title}
               price={item.price} // Multiply price by quantity
@@ -68,17 +74,17 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
           />
 
           {/* Payment Method */}
-          <View style = {styles.payment_method_container}>
-            <Text style = {styles.payment_text}>{'Payment method'}</Text>
+          <View style={styles.payment_method_container}>
+            <Text style={styles.payment_text}>{"Payment method"}</Text>
 
-            <View style = {styles.payment_method_view}>
-              <View style = {styles.card_text_container}>
-                <Card/>
-                <Text style = {styles.cash_text}>{'Cash on delivery'}</Text>
+            <View style={styles.payment_method_view}>
+              <View style={styles.card_text_container}>
+                <Card />
+                <Text style={styles.cash_text}>{"Cash on delivery"}</Text>
               </View>
               {/* circle */}
               <TouchableOpacity
-                style = {styles.check_box_container}
+                style={styles.check_box_container}
                 activeOpacity={0.6}
                 onPress={() => setIsChecked(!isChecked)} // Toggle state
               >
@@ -90,10 +96,7 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
           </View>
 
           {/* Button */}
-          <MainButton
-            title={"order placed"}
-            onPress={handleOrderPlace}
-          />
+          <MainButton title={"order placed"} onPress={handleOrderPlace} />
         </ScrollView>
       </View>
     </View>
@@ -109,7 +112,6 @@ const data = [
     title: "Royal Canin Dry Food",
     price: 5999,
     quantity: 1,
-
   },
   {
     id: 2,
