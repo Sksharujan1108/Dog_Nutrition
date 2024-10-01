@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: hp(6),
         paddingLeft: hp(2),
-        marginTop: hp(3),
+        marginTop: hp(1),
         borderColor: ColorSheet.BorderColor,
         borderWidth: 1,
         borderRadius: 12,

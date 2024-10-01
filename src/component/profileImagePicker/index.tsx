@@ -18,6 +18,7 @@ const ProfileImagePicker = () => {
       {/* Edit */}
       <TouchableOpacity
         style = {styles.edit_button}
+        activeOpacity={0.6}
         onPress={() => {}}
       >
         <Edit/>

@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
   select_categories_text: {
     marginBottom: hp(2),
     color: ColorSheet.SecondaryText,
-    fontSize: RFValue(16),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(14),
     fontWeight: "500",
   },
   save_apply_style: {
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     marginBottom: hp(1),
   },
   price_label: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
     color: "#333",
   },
 });
