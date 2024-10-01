@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     borderRadius: hp(2),
   },
   image_container: {
-    width: wp(28),
+    width: wp(26),
     height: hp(13),
     borderRadius: hp(2),
     padding: hp(1),

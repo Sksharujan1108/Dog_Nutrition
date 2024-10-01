@@ -3,7 +3,7 @@ import React from 'react'
 import { styles } from './styles';
 
 interface TotalListCardProps {
-    subTotal?: string
+    subTotal?: number
     shipping?: string
     total?: string
 }

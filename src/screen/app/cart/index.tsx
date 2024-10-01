@@ -9,14 +9,19 @@ import TotalListCard from "@/component/TotalListCard";
 import Card from '@/assets/svg/cart/credit-card.svg';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { ErrorFlash } from "@/utlis/flashMessage";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/feature/stateHook";
+import { decrementQuantity, deleteFromCart, incrementQuantity, SelectItems, selectTotal } from "@/feature/slices/cartSlices";
 
 const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
   const [isChecked, setIsChecked] = useState(false); // Checkbox state
 
-  const cartItems = useSelector((state: any) => state.cart.cartItems);
-  const total = useSelector((state: any) => state.cart.total);
-  const dispatch = useDispatch();
+  const selectedTotal = useAppSelector(selectTotal)
+  console.log('selectedTotal', selectedTotal);
+
+  const selectedItem = useAppSelector(SelectItems);
+  console.log('selectedItem', selectedItem);
+  
+  const dispatch = useAppDispatch();
 
   const handleOrderPlace = () => {
     if (!isChecked) {
@@ -42,20 +47,24 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
           showsVerticalScrollIndicator={false}
         >
           {/* Product Card */}
-          {cartItems?.map((item: any) => (
+          {selectedItem?.map((item: any) => (
             <ProductShowCard 
               key={item.id}
               title={item.title}
-              price={item.price}
+              price={item.price} // Multiply price by quantity
               image={item.image}
+              quantity={item.quantity}
+              onPressIncrease={() => dispatch(incrementQuantity(item.id))}
+              onPressDecrease={() => dispatch(decrementQuantity(item.id))}
+              onPressDelete={() => dispatch(deleteFromCart(item.id))}
             />
           ))}
 
           {/* Total Card */}
           <TotalListCard
-            subTotal={total}
+            subTotal={selectedTotal}
             shipping={"100.00"}
-            total={(total + 100).toLocaleString()} // Calculating the total dynamically
+            total={(selectedTotal + 100).toLocaleString()} // Calculating the total dynamically
           />
 
           {/* Payment Method */}
@@ -98,30 +107,36 @@ const data = [
     id: 1,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
     title: "Royal Canin Dry Food",
-    price: "Rs.5999",
+    price: 5999,
+    quantity: 1,
+
   },
   {
     id: 2,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
     title: "Royal Dry Food",
-    price: "Rs.999",
+    price: 999,
+    quantity: 1,
   },
   {
     id: 3,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
     title: "Royal Dry Food",
-    price: "Rs.999",
+    price: 999,
+    quantity: 2,
   },
   {
     id: 4,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
     title: "Royal Dry Food",
-    price: "Rs.999",
+    price: 999,
+    quantity: 1,
   },
   {
     id: 5,
     image: require("@/assets/image/home/productImage/pedigree-removebg.png"),
     title: "Royal Dry Food",
-    price: "Rs.999",
+    price: 999,
+    qty: 1,
   },
 ];

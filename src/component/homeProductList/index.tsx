@@ -18,7 +18,7 @@ interface HomeProductListProps {
     ratting: string;
     title: string;
   }[];
-  onPressAddToCart: (productId: string) => void; // Function to handle add to cart
+  onPressAddToCart: (responseItem: {id: number, image: any, price: number}, ratting: string, title: string) => void; // Function to handle add to cart
   onPressDetails: () => void;
 }
 
@@ -67,7 +67,7 @@ const HomeProductList = (props: HomeProductListProps) => {
             {/* Add To cart */}
             <AddToCart
               title={"Add to cart"}
-              onPress={() => onPressAddToCart(item.id)} // Call the prop function
+              onPress={() => onPressAddToCart(item)} // Call the prop function
             />
           </View>
         )}

@@ -9,10 +9,14 @@ import HomeOfferCart from "@/component/homeOfferCart";
 import HomeProductList from "@/component/homeProductList";
 import { HomeStackScreenProps } from "@/navigation/navigation_Models/app_Models/home/home_Models";
 import { addToCart } from "@/feature/slices/cartSlices";
-import { useAppDispatch } from "@/feature/stateHook";
+import { useAppDispatch, useAppSelector } from "@/feature/stateHook";
 
 const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
   const [search, setSearch] = useState("");
+
+  const cart = useAppSelector((state) => state.cart.cart);
+  console.log('cart New', cart);
+  
   const dispatch = useAppDispatch();
 
   // filter Product
@@ -21,15 +25,9 @@ const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
   )
 
   // Function to handle adding products to the cart
-  const handleAddToCart = (product: any) => {
-    dispatch(addToCart({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      quantity: 1,  // default quantity if adding first time
-      image: product.image
-  }));
-    console.log(`Product added to cart: ${product.title}`);
+  const handleAddToCart = (item: any) => {
+    dispatch(addToCart(item));
+    console.log(`Product added to cart: ${item.title}`);
     // Implement actual logic here (e.g., updating the cart state)
   };
 
@@ -89,7 +87,7 @@ const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
             onPressDetails={() => {
               navigation.navigate("HomeDetailsScreen");
             }}
-            onPressAddToCart={handleAddToCart}
+            onPressAddToCart={(item: any) => handleAddToCart(item)}
           />
         </ScrollView>
       </View>
