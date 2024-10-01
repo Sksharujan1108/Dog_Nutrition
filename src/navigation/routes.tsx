@@ -7,7 +7,7 @@ const Routes = () => {
   return (
     <NavigationContainer>
       {/* change */}
-      <AppBottomTop/>
+      <AuthStack/>
     </NavigationContainer>
   )
 }
