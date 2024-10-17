@@ -58,13 +58,13 @@ export const styles = StyleSheet.create({
     color: ColorSheet.AppBackground,
   },
   check_box_container: {
-    width: Platform.OS == "android" ? hp(3.5) : hp(3),
-    height: Platform.OS == "android" ? hp(3.5) : hp(3),
-    borderRadius: Platform.OS == "android" ? hp(3.5) / 2 : hp(3) / 2,
+    width: Platform.OS == "android" ? hp(3.8) : hp(3),
+    height: Platform.OS == "android" ? hp(3.8) : hp(3),
+    borderRadius: Platform.OS == "android" ? hp(3.8) / 2 : hp(3) / 2,
     borderWidth: 1,
     alignItems: "center",
     justifyContent: "center",
-    borderColor: ColorSheet.textDefaultColor,
+    borderColor: ColorSheet.PriceText,
     // backgroundColor: 'green',
   },
 });

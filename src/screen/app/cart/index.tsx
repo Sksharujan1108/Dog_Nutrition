@@ -17,6 +17,7 @@ import {
   SelectItems,
   selectTotal,
 } from "@/feature/slices/cartSlices";
+import { Entypo } from "@expo/vector-icons";
 
 const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
   const [isChecked, setIsChecked] = useState(false); // Checkbox state
@@ -89,7 +90,7 @@ const Cart = ({ navigation }: CartStackScreenProps<"CartScreen">) => {
                 onPress={() => setIsChecked(!isChecked)} // Toggle state
               >
                 {isChecked && (
-                  <AntDesign name="check" size={18} color="black" />
+                  <Entypo name="check" size={18} color="black" />
                 )}
               </TouchableOpacity>
             </View>
