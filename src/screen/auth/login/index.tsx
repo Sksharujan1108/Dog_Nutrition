@@ -62,7 +62,7 @@ const LogIn = ({ navigation }: AuthStackScreenProps<"LogInScreen">) => {
           {/* Add Image */}
           <Image
             style={styles.image}
-            source={require("@/assets/image/onBoarding/onBoard_Image.webp")}
+            source={require("@/assets/image/onBoarding/image_copy.png")}
           />
 
           <View style={styles.data_container}>

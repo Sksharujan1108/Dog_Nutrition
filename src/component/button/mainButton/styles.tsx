@@ -11,7 +11,7 @@ import {
 export const styles = StyleSheet.create({
   button_root: {
     width: '100%',
-    height: hp(7),
+    height: hp(8),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 12,
@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: wp(2),
   },
   title_txt: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(18) : RFValue(14),
     color: ColorSheet.Primary,
-    fontWeight: '600',
+    fontWeight: '700',
   },
 });

@@ -102,13 +102,13 @@ export const styles = StyleSheet.create({
   },
   button_container: {
     width: "90%",
-    marginTop: Platform.OS == "android" ? hp(5) :  hp(4),
+    marginTop: Platform.OS == "android" ? hp(3) :  hp(4),
   },
   registerContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: hp(1),
+    marginTop: hp(1.2),
     // backgroundColor: 'pink'
   },
   registerText: {

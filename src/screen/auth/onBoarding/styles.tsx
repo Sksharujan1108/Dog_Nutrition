@@ -12,22 +12,22 @@ export const styles = StyleSheet.create({
         // backgroundColor: 'green',
     },
     image_container: {
-        flex: 0.55,
+        flex: 0.6,
         // backgroundColor: 'pink',
     },
     image: {
         position: 'absolute',
         zIndex: -1,
         width: wp(100),
-        height: hp(60),
-        resizeMode: 'stretch',
+        height: hp(65),
+        resizeMode: 'cover',
     },
     data_container: {
-        flex: 0.48,
+        flex: 0.45,
     },
     white_container: {
         width :'100%',
-        height: Platform.OS == 'ios' ? hp(50) : hp(58),
+        height: Platform.OS == 'ios' ? hp(50) : hp(65),
         borderTopLeftRadius: hp(3),
         borderTopRightRadius: hp(3),
         alignItems: 'center',
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     title_container: {
         width: '90%',
         padding: hp(2),
-        marginTop: Platform.OS == 'android' ? hp(12) : hp(10),
+        marginTop: Platform.OS == 'android' ? hp(6) : hp(10),
         alignItems: 'center',
         // backgroundColor: 'red'
     },
