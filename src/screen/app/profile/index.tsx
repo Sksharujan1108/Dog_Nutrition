@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView, StatusBar } from "react-native";
 import React, { useState } from "react";
 import HomeBackTitleHeader from "@/component/backTitleHeader";
 import { styles } from "./styles";
@@ -12,6 +12,8 @@ import EditButton from "@/component/button/editButton";
 
 const Profile = ({ navigation }: ProfileStackScreenProps<"ProfileScreen">) => {
   const [form, setForm] = useState({
+    image: '',
+    imageError: "", 
     name: "",
     nameError: "",
     phoneNumber: "",
@@ -30,6 +32,15 @@ const Profile = ({ navigation }: ProfileStackScreenProps<"ProfileScreen">) => {
   const handleEdit = () => {
     setIsEdit(true);
     setIsSaved(false); // Reset saved state when entering edit mode
+  };
+
+  // Function to handle the image selection
+  const handleImageSelected = (imageUri: string) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      image: imageUri,  // Update image in the form
+      imageError: '',   // Clear any previous errors
+    }));
   };
 
   // Function to handle the "Save" action with validation
@@ -121,7 +132,11 @@ const Profile = ({ navigation }: ProfileStackScreenProps<"ProfileScreen">) => {
           showsVerticalScrollIndicator={false}
         >
           {/* Image Picker */}
-          <ProfileImagePicker />
+          <ProfileImagePicker 
+            disabled={!isEdit}
+            data={form.image}
+            onImageSelected={handleImageSelected}  // Pass the callback to handle image selection
+          />
 
           {/* Text Input */}
           <View style={styles.text_input_container}>

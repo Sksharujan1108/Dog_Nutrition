@@ -1,5 +1,5 @@
 import { ColorSheet } from "@/utlis/ColorSheet";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import {
   heightPercentageToDP as hp,
@@ -11,31 +11,18 @@ import {
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
-    padding: hp(1.5),
+    padding: hp(2),
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: ColorSheet.Primary,
     borderRadius: hp(1),
+    marginTop: Platform.OS == 'android' ? hp(6) : hp(0),
   },
   row_container: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-  },
-  text_container: {
-    marginLeft: hp(1),
-  },
-  name_text: {
-    fontSize: RFValue(13),
-    fontWeight: "800",
-    color: ColorSheet.AppBackground,
-  },
-  location_text: {
-    paddingTop: hp(0.5),
-    fontSize: RFValue(12),
-    fontWeight: "400",
-    color: ColorSheet.Text,
   },
   image_view: {
     flex: 0.25,
@@ -44,5 +31,36 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: ColorSheet.Shadow,
+  },
+  text_container: {
+    marginLeft: hp(1),
+  },
+  name_text: {
+    fontSize: Platform.OS == 'android' ? RFValue(15) :  RFValue(13),
+    fontWeight: "800",
+    color: ColorSheet.AppBackground,
+  },
+  location_text: {
+    paddingTop: hp(0.5),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
+    fontWeight: "400",
+    color: ColorSheet.Text,
+  },
+
+  cartCountContainer: {
+    position: 'absolute',
+    top: -4,
+    right: -4,
+    width: hp(2),
+    height: hp(2),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: ColorSheet.Error,
+    borderRadius: hp(2)/2,
+  },
+  cartCountText: {
+    fontSize: RFValue(8),
+    fontWeight: '500',
+    color: ColorSheet.Primary,
   },
 });

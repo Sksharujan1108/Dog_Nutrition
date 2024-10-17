@@ -1,8 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import BackArrow from "@/assets/svg/home/BackArrow.svg";
-import Cart from "@/assets/svg/home/cart.svg";
+import Cart from '@/assets/svg/cart/Buy.svg'
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
+import { selectCartItemsCount } from "@/feature/slices/cartSlices";
 
 interface HomeBackTitleHeaderProps {
   title?: string;
@@ -12,6 +14,8 @@ interface HomeBackTitleHeaderProps {
 
 const HomeBackTitleHeader = (props: HomeBackTitleHeaderProps) => {
   const { title, onPressBack, onPressCart } = props;
+  const cartItemCount = useSelector(selectCartItemsCount); // Get the item count from Redux
+
   return (
     <View style={styles.container}>
       {/* Back */}
@@ -31,6 +35,11 @@ const HomeBackTitleHeader = (props: HomeBackTitleHeaderProps) => {
         onPress={onPressCart}
       >
         <Cart width={24} height={24} />
+        {cartItemCount > 0 && (
+          <View style={styles.cartCountContainer}>
+            <Text style={styles.cartCountText}>{cartItemCount}</Text>
+          </View>
+        )}
       </TouchableOpacity>
     </View>
   );

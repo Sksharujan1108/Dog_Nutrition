@@ -26,33 +26,33 @@ export const styles = StyleSheet.create({
   text_container: {},
   title_text: {
     width: hp(15),
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(17) : RFValue(14),
     fontWeight: '800',
     color: ColorSheet.AppBackground,
     // backgroundColor: 'red'
   },
   offer_text: {
     marginTop :hp(0.5),
-    fontSize: RFValue(13),
-    fontWeight: '700',
-    color: ColorSheet.Secondary,
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(13),
+    fontWeight: '800',
+    color: ColorSheet.Error,
   },
   description_text_1: {
-    width: hp(18),
+    width: hp(20),
     marginTop :hp(0.5),
-    fontSize: RFValue(13),
-    fontWeight: '400',
+    fontSize: Platform.OS == 'android' ? RFValue(15) : RFValue(13),
+    fontWeight: '500',
     color: ColorSheet.SecondaryText,
     // backgroundColor: 'red'
   },
   description_text_2: {
-    fontSize: RFValue(13),
-    fontWeight: '400',
-    color: ColorSheet.Secondary,
+    fontSize: Platform.OS == 'android' ? RFValue(15) : RFValue(13),
+    fontWeight: '600',
+    color: ColorSheet.Error,
   },
   image_container: {
-    width: '40%',
-    height: hp(17),
+    width: '48%',
+    height: hp(18),
   },
   image: {
     width: '100%',

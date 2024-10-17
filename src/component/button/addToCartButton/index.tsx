@@ -1,10 +1,11 @@
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native'
 import React from 'react'
 import { styles } from './styles';
+import { GestureHandlerGestureEvent } from 'react-native-gesture-handler';
 
 interface AddToCartProps {
     title: string;
-    onPress: () => void;
+    onPress: (e: GestureHandlerGestureEvent) => void;
     disabled?: boolean;
     style?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;

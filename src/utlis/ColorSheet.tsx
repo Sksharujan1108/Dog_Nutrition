@@ -1,6 +1,6 @@
 export const ColorSheet = {
   Primary: '#FFFFFF',
-  Secondary: '#08A500',
+  Secondary: '#FC003C',
   AppBackground: '#1F1B2C',
   White: '#FFFFFF',
   Error: '#FF0000',

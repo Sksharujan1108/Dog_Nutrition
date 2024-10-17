@@ -31,8 +31,25 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title_text: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(14),
     color: ColorSheet.InputText,
-    fontWeight: "400",
+    fontWeight: "500",
+  },
+
+  cartCountContainer: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    width: hp(2),
+    height: hp(2),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: ColorSheet.Error,
+    borderRadius: hp(2)/2,
+  },
+  cartCountText: {
+    fontSize: RFValue(8),
+    fontWeight: '500',
+    color: ColorSheet.Primary,
   },
 });

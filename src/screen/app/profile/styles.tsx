@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     marginTop: hp(1),
   },
   text_title: {
-    marginTop: hp(1.5),
+    marginTop: hp(2),
     fontSize: RFValue(13),
     fontWeight: "400",
     color: ColorSheet.AppBackground,

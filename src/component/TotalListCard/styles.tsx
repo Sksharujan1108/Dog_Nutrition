@@ -22,12 +22,12 @@ export const styles = StyleSheet.create({
         justifyContent:'space-between',
     },
     common_text: {
-        fontSize: RFValue(14),
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(13),
         fontWeight: '500',
         color: ColorSheet.PrimaryText,
     },
     total_text: {
-        fontSize: RFValue(14),
+        fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(14),
         fontWeight: '600',
         color: ColorSheet.InputText,
     },

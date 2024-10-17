@@ -97,17 +97,17 @@ const guideMainData = {
 const data = [
   {
     id: 1,
-    image: require("@/assets/image/guide/DogGuide.webp"),
+    image: 'https://dogsinc.org/wp-content/uploads/2021/07/air-force-sergeant-morgan-watt.jpg',
     title: "Find and Join in Special Events For Your Pets!",
   },
   {
     id: 2,
-    image: require("@/assets/image/guide/DogGuide.webp"),
+    image: 'https://www.lep.co.uk/webimg/QVNIMTI0NTAxMTYw.jpg?crop=3:2,smart&trim=&width=640&quality=65',
     title: "Find and Join in Special Events For Your Pets!",
   },
   {
     id: 3,
-    image: require("@/assets/image/guide/DogGuide.webp"),
+    image: 'https://www.telegraph.co.uk/content/dam/news/2022/11/05/TELEMMGLPICT000313989487_trans_NvBQzQNjv4BqIGBrXjEx6ttpR7vQUDUeiSFJMyEXittCJe6Ch-I2vnI.jpeg',
     title: "Find and Join in Special Events For Your Pets!",
   }
 ];
@@ -115,7 +115,7 @@ const data = [
 const videoData = [
   {
     id: 1,
-    image: require("@/assets/image/guide/layDown.jpg"),
+    image: 'https://images.contentstack.io/v3/assets/blt6f84e20c72a89efa/blt56e5faefbb0813bc/6261d465e0b6e528f0f8d6ca/teach-dog-lie-down_img_article-head.jpg',
     title: "Lay Down",
     level: "Beginner",
     duration: "3",
@@ -123,7 +123,7 @@ const videoData = [
   },
   {
     id: 2,
-    image: require("@/assets/image/guide/fetch1.webp"),
+    image: 'https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2022/07/GettyImages-1012306228.jpg',
     title: "Play Fetch",
     level: "Intermediate",
     duration: "5",
@@ -131,7 +131,7 @@ const videoData = [
   },
   {
     id: 3,
-    image: require("@/assets/image/guide/jump.jpg"),
+    image: 'https://m.media-amazon.com/images/I/81pUVt0XuUL.jpg',
     title: "Jump Rope",
     level: "Advanced",
     duration: "10",
@@ -139,7 +139,7 @@ const videoData = [
   },
   {
     id: 4,
-    image: require("@/assets/image/guide/playDead.jpg"),
+    image: 'https://ckcusa.com/media/144887/337442_med.jpg?preset=ckcBlogImage',
     title: "Play Dead",
     level: "Beginner",
     duration: "2",
