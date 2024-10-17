@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     marginTop :hp(0.5),
     fontSize: RFValue(13),
     fontWeight: '700',
-    color: ColorSheet.Secondary,
+    color: ColorSheet.Error,
   },
   description_text_1: {
     width: hp(18),
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   description_text_2: {
     fontSize: RFValue(13),
     fontWeight: '400',
-    color: ColorSheet.Secondary,
+    color: ColorSheet.Error,
   },
   image_container: {
     width: '40%',

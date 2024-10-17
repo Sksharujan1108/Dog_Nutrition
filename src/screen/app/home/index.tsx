@@ -67,7 +67,9 @@ const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
               style={styles.filterBtn}
               activeOpacity={0.5}
               onPress={() => {
-                console.log("Filter");
+                navigation.navigate('SearchScreenStack' ,{
+                  name: 'SearchScreen'
+                })
               }}
             >
               <Filter />
@@ -98,8 +100,8 @@ const Home = ({ navigation }: HomeStackScreenProps<"HomeScreen">) => {
 export default Home;
 
 const profileData = {
-  name: "Sandy",
-  location: "Mumbai, India",
+  name: "Sk Sarujan",
+  location: "Jaffna, Chunnakam",
 };
 
 const offerData = {

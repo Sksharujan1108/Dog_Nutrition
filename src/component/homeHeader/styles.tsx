@@ -1,5 +1,5 @@
 import { ColorSheet } from "@/utlis/ColorSheet";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import {
   heightPercentageToDP as hp,
@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: ColorSheet.Primary,
     borderRadius: hp(1),
+    marginTop: Platform.OS == 'android' ? hp(6) : hp(0),
   },
   row_container: {
     flex: 1,

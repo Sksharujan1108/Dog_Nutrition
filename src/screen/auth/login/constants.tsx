@@ -2,12 +2,12 @@ export const Constants = {
     TITLE: 'Login',
     SUB_TITLE: `Welcome! Please enter your information below and get started.`,
 
-    PLACEHOLDER_EMAIL: 'sarujan@gmail.com',
+    PLACEHOLDER_EMAIL: 'Enter Your Email',
     EMAIL_REQUIRED: 'Email is required',
     VALID_EMAIL: `Please enter a valid email`,
 
 
-    PLACEHOLDER_PASSWORD: '******',
+    PLACEHOLDER_PASSWORD: 'Enter Your Password',
     PASSWORD_REQUIRED: 'Password is required',
     VALID_PASS:
     'Password must be at least 10 characters long, contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character',

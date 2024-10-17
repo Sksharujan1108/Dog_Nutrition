@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   main_container: {
     flex: 1,
-    marginTop: Platform.OS == "android" ? hp(8) : 0,
+    marginTop: Platform.OS == "android" ? hp(1) : 0,
     // backgroundColor: 'pink'
   },
   scroll_view_container: {

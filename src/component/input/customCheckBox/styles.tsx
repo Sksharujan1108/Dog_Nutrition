@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     width: wp(6),
     height: wp(6),
     padding: hp(0.5),
-    backgroundColor: "#5F9EA0",
+    backgroundColor: "#FC003C",
     borderWidth: 2,
     borderColor: ColorSheet.CheckBoxBorder,
     borderRadius: 5,

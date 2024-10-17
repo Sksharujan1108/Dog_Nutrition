@@ -156,8 +156,8 @@ const Search = ({ navigation }: SearchStackScreenProps<"SearchScreen">) => {
 export default Search;
 
 const profileData = {
-  name: "Sandy",
-  location: "Mumbai, India",
+  name: "Sk Sarujan",
+  location: "Jaffna, Chunnakam",
 };
 
 const foodCategories = [

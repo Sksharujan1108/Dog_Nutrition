@@ -12,11 +12,11 @@ export const styles = StyleSheet.create({
   main_Container: {
     width: wp(100),
     paddingHorizontal: hp(2),
-    marginTop: Platform.OS == 'android' ? hp(6) : 0,
+    marginTop: Platform.OS == 'android' ? hp(2) : 0,
   },
   scroll_view_container: {
     flexGrow: 1,
-    paddingBottom: Platform.OS == 'android' ? hp(6) :  hp(10),
+    paddingBottom: Platform.OS == 'android' ? hp(20) :  hp(10),
   },
   search_filter_container: {
     width: "100%",

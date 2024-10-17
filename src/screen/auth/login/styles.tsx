@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
   },
   textInput_container: {
     width: "100%",
-    marginTop: hp(0),
+    marginTop: hp(2),
     paddingHorizontal: hp(2),
     // backgroundColor: 'green'
   },

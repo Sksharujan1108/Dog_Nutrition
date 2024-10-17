@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: wp(100),
-    height: hp(55),
+    height: hp(45),
     resizeMode: "stretch",
   },
   data_container: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   white_container: {
     width: "100%",
-    height: Platform.OS == 'android' ? hp(58) : hp(58),
+    height: Platform.OS == 'android' ? hp(75) : hp(65),
     borderTopLeftRadius: hp(3),
     borderTopRightRadius: hp(3),
     alignItems: "center",
@@ -101,7 +101,7 @@ export const styles = StyleSheet.create({
   },
   button_container: {
     width: "90%",
-    marginTop: Platform.OS == 'android' ? hp(4) : hp(4),
+    marginTop: Platform.OS == 'android' ? hp(2) : hp(2),
   },
   alreadyAccContainer: {
     marginTop: hp(1),

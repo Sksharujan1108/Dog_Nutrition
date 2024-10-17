@@ -11,12 +11,13 @@ import {
 export const styles = StyleSheet.create({
     root: {
         // flex: 1,
+        marginBottom: hp(1),
     },
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        height: hp(6),
+        height:Platform.OS == 'android' ? hp(7) : hp(6),
         paddingLeft: hp(2),
         marginTop: hp(1),
         borderColor: ColorSheet.BorderColor,

@@ -19,11 +19,11 @@ import { ColorSheet } from "@/utlis/ColorSheet";
 import SearchStack from "../stack/appStack/search/searchStack";
 import CartStack from "../stack/appStack/cart/cartStack";
 import GuideStack from "../stack/appStack/guide/guideStack";
-import GreenHome from '@/assets/svg/bottomTab/GreenHome.svg'
-import GreenSearch from '@/assets/svg/bottomTab/GreenSearch.svg'
-import GreenGuide from '@/assets/svg/bottomTab/GreenGuide.svg'
-import GreenCart from '@/assets/svg/bottomTab/GreenCart.svg'
-import GreenProfile from '@/assets/svg/bottomTab/GreenProfile.svg'
+import GreenHome from '@/assets/svg/bottomTab/footprint-Red.svg'
+import GreenSearch from '@/assets/svg/bottomTab/Search_Red.svg'
+import GreenGuide from '@/assets/svg/bottomTab/adopt_Red.svg'
+import GreenCart from '@/assets/svg/bottomTab/Buy-Red.svg'
+import GreenProfile from '@/assets/svg/bottomTab/user-Red.svg'
 import { useSelector } from "react-redux";
 import { selectCartItemsCount } from "@/feature/slices/cartSlices";
 

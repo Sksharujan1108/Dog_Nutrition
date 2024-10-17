@@ -21,6 +21,10 @@ import { isString } from "@/utlis/validations";
 
 const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
   const [form, setForm] = useState({
+    firstName: '',
+    firstNameError: '',
+    lastName: '',
+    lastNameError: '',
     email: "",
     emailError: "",
     password: "",
@@ -30,17 +34,17 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
   const [isChecked, setIsChecked] = useState(false); // Track if checkbox is checked
 
   const handleLogIn = () => {
-    if (isString(form.email)) {
-      ErrorFlash(Constants.VALID_EMAIL);
+    if ((form.firstName = '')) {
+      ErrorFlash(Constants.FIRST_NAME_REQUIRED);
+    } else if (form.lastName === "") {
+      ErrorFlash(Constants.LAST_NAME_REQUIRED);
     } else if (form.email === "") {
-      ErrorFlash(Constants.EMAIL_REQUIRED);
-      // else if (isPassword(form.password)) {
-      //   ErrorFlash(Constants.VALID_PASS);
-      // }
-    } else if (form.password === "") {
-      ErrorFlash(Constants.PASSWORD_REQUIRED);
+      ErrorFlash(Constants.VALID_EMAIL);
+    } else if (form.password == '') {
+      ErrorFlash(Constants.VALID_PASS);
     } else {
-      SuccessFlash('Register Success')
+      SuccessFlash(Constants.REGISTER_SUCCESS);
+      navigation.navigate("AppBottomTopScreen");
     }
   };
 
@@ -87,6 +91,42 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
               </View>
 
               <View style={styles.textInput_container}>
+                {/* First Name */}
+                <TextInputField
+                  placeholder={Constants.FIRST_NAME}
+                  value={form.firstName}
+                  onChangeText={(text) => setForm({ ...form, firstName: text })}
+                  onFocus={() => setForm({ ...form, firstNameError: "" })}
+                  textError={form.firstNameError}
+                  onBlur={() => {
+                    if (form.firstName === "") {
+                      setForm({
+                        ...form,
+                        firstName: Constants.FIRST_NAME_REQUIRED,
+                      });
+                    } else {
+                      setForm({ ...form, firstNameError: "" });
+                    }
+                  }}
+                />
+                {/* Last Name */}
+                <TextInputField
+                  placeholder={Constants.LAST_NAME}
+                  value={form.lastName}
+                  onChangeText={(text) => setForm({ ...form, lastName: text })}
+                  onFocus={() => setForm({ ...form, lastNameError: "" })}
+                  textError={form.lastNameError}
+                  onBlur={() => {
+                    if (form.lastName === "") {
+                      setForm({
+                        ...form,
+                        lastNameError: Constants.LAST_NAME_REQUIRED,
+                      });
+                    } else {
+                      setForm({ ...form, lastNameError: "" });
+                    }
+                  }}
+                />
                 {/* Email */}
                 <TextInputField
                   placeholder={Constants.PLACEHOLDER_EMAIL}
@@ -144,9 +184,7 @@ const Register = ({ navigation }: AuthStackScreenProps<"RegisterScreen">) => {
               <MainButton
                 style={[styles.button_container]}
                 title={Constants.BUTTON}
-                onPress={() => {
-                  navigation.navigate("RegisterScreen");
-                }}
+                onPress={handleLogIn}
                 disabled={!isChecked} // Disable the button if checkbox is not checked
               />
 
