@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, Image, TouchableOpacity, ScrollView, StatusBar } from "react-native";
 import React, { useState } from "react";
 import HomeBackTitleHeader from "@/component/backTitleHeader";
 import { styles } from "./styles";

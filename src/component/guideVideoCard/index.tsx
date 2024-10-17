@@ -37,7 +37,7 @@ const GuideVideoCard = (props: GuideVideoCardProps) => {
           >
             {/* image container */}
             <View style={styles.image_container}>
-              <Image style={styles.image} source={item?.image} />
+              <Image style={styles.image} source={{ uri: item?.image}} />
 
               {/* video Button */}
               <View style = {styles.video_container}>

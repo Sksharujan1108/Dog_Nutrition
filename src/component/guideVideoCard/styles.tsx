@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     height: hp(15),
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
   },
   image: {
     width: '100%',

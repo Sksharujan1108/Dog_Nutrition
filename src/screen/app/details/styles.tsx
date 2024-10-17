@@ -10,6 +10,10 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    scroll_container: {
+        flexGrow: 1,
+        paddingBottom: hp(5),
+    },
     main_container: {
         flex: 1,
         paddingHorizontal: hp(2),
@@ -18,7 +22,7 @@ export const styles = StyleSheet.create({
     },
     image_container: {
         width: '100%',
-        height: Platform.OS == 'android' ? hp(30) : hp(28),
+        height: Platform.OS == 'android' ? hp(32) : hp(30),
         marginTop: hp(1),
         marginBottom: hp(1),
         // backgroundColor: ColorSheet.White,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import React from "react";
 import HomeBackTitleHeader from "@/component/backTitleHeader";
 import { HomeStackScreenProps } from "@/navigation/navigation_Models/app_Models/home/home_Models";
@@ -34,6 +34,10 @@ const HomeDetails = ({
           })
         }}
       />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scroll_container}
+      >
       <View style={styles.main_container}>
         {/* Image Container */}
         <View style={styles.image_container}>
@@ -46,6 +50,7 @@ const HomeDetails = ({
           id={data?.id}
           title={data?.title}
           price={data?.price}
+          age={data?.age}
           rate={data?.ratting}
           description={data?.description}
         />
@@ -68,6 +73,7 @@ const HomeDetails = ({
           </TouchableOpacity>
         </View>
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -79,6 +85,7 @@ const data = {
   image: require("@/assets/image/home/productImage/pet_food _packing.png"),
   title: "Royal Canin Dry Food",
   price: 5999,
+  age: '2-4',
   ratting: "4.2k",
   description: `Product Information Let's Bite Active Puppy Dog Food 10Kg + 2kg Free inside Let's bite active puppy dog food fulfills the special needs of your puppy. The products in this range combine high quality ingredients with the science `,
 };

@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     borderRadius: hp(1),
   },
   text_container: {
-    width: "65%",
+    width: "60%",
     // backgroundColor: 'pink'
   },
   title: {
@@ -36,6 +36,7 @@ export const styles = StyleSheet.create({
     borderRadius: hp(1),
     justifyContent: "center",
     alignItems: "center",
+    // alignSelf: 'flex-end',
   },
   button_text: {
     fontSize: RFValue(15),

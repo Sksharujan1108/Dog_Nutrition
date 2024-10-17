@@ -36,13 +36,13 @@ export const styles = StyleSheet.create({
     marginLeft: hp(1),
   },
   name_text: {
-    fontSize: RFValue(13),
+    fontSize: Platform.OS == 'android' ? RFValue(15) :  RFValue(13),
     fontWeight: "800",
     color: ColorSheet.AppBackground,
   },
   location_text: {
     paddingTop: hp(0.5),
-    fontSize: RFValue(12),
+    fontSize: Platform.OS == 'android' ? RFValue(14) : RFValue(12),
     fontWeight: "400",
     color: ColorSheet.Text,
   },

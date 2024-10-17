@@ -31,9 +31,9 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
   },
   title_text: {
-    fontSize: RFValue(14),
+    fontSize: Platform.OS == 'android' ? RFValue(16) : RFValue(14),
     color: ColorSheet.InputText,
-    fontWeight: "400",
+    fontWeight: "500",
   },
 
   cartCountContainer: {

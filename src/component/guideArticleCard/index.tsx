@@ -23,6 +23,11 @@ const GuideArticlesCard = (props: GuideArticlesCardProps) => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => (
           <View style={styles.container}>
+            {/* image container */}
+            <View style={styles.image_container}>
+              <Image style={styles.image} source={{ uri: item?.image}} />
+            </View>
+            
             <View style={styles.text_container}>
               {/* Title */}
               <Text style={styles.title}>{item?.title}</Text>
@@ -36,10 +41,6 @@ const GuideArticlesCard = (props: GuideArticlesCardProps) => {
               </TouchableOpacity>
             </View>
 
-            {/* image container */}
-            <View style={styles.image_container}>
-              <Image style={styles.image} source={item?.image} />
-            </View>
           </View>
         )}
       />
